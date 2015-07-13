@@ -9,11 +9,18 @@ and open the template in the editor.
         <title>Kitabın Hareketleri</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="resources/css/bootstrap.css"/>
+        <link rel="stylesheet" href="resources/css/w2ui-1.4.2.css"/>
+
+        <script src="resources/js/jquery-2.1.4.min.js"></script>
+        <script src="resources/js/bootstrap.js"></script>
+        <script src="resources/js/w2ui-1.4.2.js"></script>
+
     </head>
     <body>
-        <center>
+<!--        <center>
                 <h2>Kitabın haretleri</h2>
-                
+
             <table border="1">
             <TR>
                 <td>ADI SOYADI</td>
@@ -28,9 +35,51 @@ and open the template in the editor.
                 <th> <input type="number" min="1" /> </th>
             </tr>
             </table>
-    
 
-        <a href="AdminPanel.html">Anasayfaya dön</a>
-    </center>
+
+
+    </center>-->
+
+
+<center>
+    <h1>KİTABIN HARETLERİ</h1>
+        <div id="grid" style="width: 100%; height: 500px;">
+        </div>
+    <a href="AdminPanel.html">Anasayfaya dön</a>
+</center>
+    <script>
+        $(function () {
+            $('#grid').w2grid({
+                name: 'grid',
+                show: {
+                    toolbar: true,
+                    footer: true,
+                    toolbarSave: true
+                },
+                columns: [
+                    { field: 'name', caption: 'Name', size: '25%', sortable: true, resizable: true,
+                        editable: { type: 'text', inTag: 'maxlength=30' }
+                    },
+
+                    { field: 'Date', caption: 'Alış Tarihi', size: '25%', style: 'text-align: center', resizable: true,
+                        editable: { type: 'date', style: 'text-align: center' }
+                    },
+                    { field: 'Date1', caption: 'İade Tarihi', size: '25%', style: 'text-align: center', resizable: true,
+                        editable: { type: 'date', style: 'text-align: center' }
+                    },
+                    { field: 'kSure', caption: 'Kalış Süresi', size: '25%', resizable: true, style: "text-align: center",
+                        editable: { type: 'int', inTag: "maxlength=3", style: 'text-align: center' }
+                    }
+                ],
+                records: [
+                    { recid: 1, name: 'Murat Can', Date: '12/01/2015', Date1: '18/08/2015', kSure: '36' ,
+
+                        style: 'background-color: #ffcccc', editable: true }
+                ]
+            });
+        });
+
+
+    </script>
     </body>
 </html>
