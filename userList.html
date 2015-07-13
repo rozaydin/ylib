@@ -9,11 +9,18 @@ and open the template in the editor.
         <title>Kullanıcı Listesi</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="resources/css/bootstrap.css"/>
+        <link rel="stylesheet" href="resources/css/w2ui-1.4.2.css"/>
+
+        <script src="resources/js/jquery-2.1.4.min.js"></script>
+        <script src="resources/js/bootstrap.js"></script>
+        <script src="resources/js/w2ui-1.4.2.js"></script>
+
     </head>
     <body>
     <center>
-        <h2>Kullanıcı Listesi</h2>
-        <table border="1">
+<!--        <table border="1">
             <tr>
                 <td>ADI</td>
                 <td>SOYADI</td>
@@ -24,10 +31,47 @@ and open the template in the editor.
                 <th>VARER</th>
                 <th>YAZILIM</th>
             </tr>
-        </table>
+        </table>-->
+        <h1>Kullanıcı Listesi</h1>
+        <div
+                id="grid" style="width: 100%; height: 500px;">
+
+        </div>
+
         <p><a href="newCustomer.html">Edit User</a></p>   
         <p><a href="userList.html">Delete User</a></p>
-        <p><a href="AdminPanel.html">Anasayfaya dön</a></p>
+        <p><a href="AdminPanel.html">Main Page</a></p>
+
+        <script>
+            $(function () {
+                $('#grid').w2grid({
+                    name: 'grid',
+                    show: {
+                        toolbar: true,
+                        footer: true,
+                        toolbarSave: true
+                    },
+                    columns: [
+                        { field: 'fName', caption: 'First Name', size: '33%', sortable: true, resizable: true,
+                            editable: { type: 'text', inTag: 'maxlength=30' }
+                        },
+
+                        { field: 'sName', caption: 'Surname', size: '33%', style: 'text-align: center', resizable: true,
+                            editable: { type: 'text', style: 'text-align: center' }
+                        },
+                        { field: 'Dep', caption: 'Department', size: '34%', style: 'text-align: center', resizable: true,
+                            editable: { type: 'text', style: 'text-align: center' }
+                        }
+                    ]
+                });
+            });
+
+
+        </script>
+
+
+
+
     </center>
     </body>
 </html>

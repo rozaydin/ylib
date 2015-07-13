@@ -45,7 +45,7 @@ and open the template in the editor.
     <h1>KİTABIN HARETLERİ</h1>
         <div id="grid" style="width: 100%; height: 500px;">
         </div>
-    <a href="AdminPanel.html">Anasayfaya dön</a>
+    <a href="AdminPanel.html">Main page</a>
 </center>
     <script>
         $(function () {
@@ -61,20 +61,15 @@ and open the template in the editor.
                         editable: { type: 'text', inTag: 'maxlength=30' }
                     },
 
-                    { field: 'Date', caption: 'Alış Tarihi', size: '25%', style: 'text-align: center', resizable: true,
+                    { field: 'pDate', caption: 'Purchase Date', size: '25%', style: 'text-align: center', resizable: true,
                         editable: { type: 'date', style: 'text-align: center' }
                     },
-                    { field: 'Date1', caption: 'İade Tarihi', size: '25%', style: 'text-align: center', resizable: true,
+                    { field: 'rDate', caption: 'Return Date', size: '25%', style: 'text-align: center', resizable: true,
                         editable: { type: 'date', style: 'text-align: center' }
                     },
-                    { field: 'kSure', caption: 'Kalış Süresi', size: '25%', resizable: true, style: "text-align: center",
+                    { field: 'rTime', caption: 'Residence Time', size: '25%', resizable: true, style: "text-align: center",
                         editable: { type: 'int', inTag: "maxlength=3", style: 'text-align: center' }
                     }
-                ],
-                records: [
-                    { recid: 1, name: 'Murat Can', Date: '12/01/2015', Date1: '18/08/2015', kSure: '36' ,
-
-                        style: 'background-color: #ffcccc', editable: true }
                 ]
             });
         });
