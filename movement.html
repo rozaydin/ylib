@@ -5,19 +5,22 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
-    <head>
-        <title>Kitabın Hareketleri</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="resources/css/bootstrap.css"/>
-        <link rel="stylesheet" href="resources/css/w2ui-1.4.2.css"/>
+<head>
+    <title>Kitabın Hareketleri</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="resources/css/bootstrap.css"/>
+    <link rel="stylesheet" href="resources/css/font-awesome.css"/>
+    <link rel="stylesheet" href="resources/css/w2ui-1.4.2.css"/>
 
-        <script src="resources/js/jquery-2.1.4.min.js"></script>
-        <script src="resources/js/bootstrap.js"></script>
-        <script src="resources/js/w2ui-1.4.2.js"></script>
 
-    </head>
-    <body>
+    <script src="resources/js/jquery-2.1.4.min.js"></script>
+    <script src="resources/js/bootstrap.js"></script>
+    <script src="resources/js/w2ui-1.4.2.js"></script>
+
+</head>
+<body>
+
 <!--        <center>
                 <h2>Kitabın haretleri</h2>
 
@@ -40,41 +43,69 @@ and open the template in the editor.
 
     </center>-->
 
+<nav id="navbar">
+</nav>
 
-<center>
-    <h1>KİTABIN HARETLERİ</h1>
-        <div id="grid" style="width: 100%; height: 500px;">
-        </div>
-    <a href="AdminPanel.html">Main page</a>
+
+<div id="grid" style=" margin: 2em; height: 500px;">
+</div>
+
+
 </center>
-    <script>
-        $(function () {
-            $('#grid').w2grid({
-                name: 'grid',
-                show: {
-                    toolbar: true,
-                    footer: true,
-                    toolbarSave: true
-                },
-                columns: [
-                    { field: 'name', caption: 'Name', size: '25%', sortable: true, resizable: true,
-                        editable: { type: 'text', inTag: 'maxlength=30' }
-                    },
+<script>
+    $(function () {
 
-                    { field: 'pDate', caption: 'Purchase Date', size: '25%', style: 'text-align: center', resizable: true,
-                        editable: { type: 'date', style: 'text-align: center' }
-                    },
-                    { field: 'rDate', caption: 'Return Date', size: '25%', style: 'text-align: center', resizable: true,
-                        editable: { type: 'date', style: 'text-align: center' }
-                    },
-                    { field: 'rTime', caption: 'Residence Time', size: '25%', resizable: true, style: "text-align: center",
-                        editable: { type: 'int', inTag: "maxlength=3", style: 'text-align: center' }
-                    }
-                ]
-            });
+        $('#navbar').w2toolbar({
+            name: 'toolbar',
+            items: [
+                {type: 'button', id: 'homePage', caption: 'Ana Sayfa', icon: 'fa fa-diamond'},
+                {type: 'spacer'},
+                {type: 'button', id: 'aboutPage', caption: 'Hakkinda', icon: 'fa fa-diamond'},
+            ],
+            onClick: function (target, data) {
+
+                if ( target === 'homePage' ) {
+                    window.location.href = 'AdminPanel.html';
+                }
+            }
         });
 
+        $('#grid').w2grid({
+            name: 'grid',
+            header: '<h4>Book History</h4>',
+            show: {
+                header: true,
+                toolbar: true,
+                footer: true,
+                toolbarSave: true
+            },
+            columns: [
+                {
+                    field: 'name', caption: 'Name', size: '25%', sortable: true, resizable: true,
+                    editable: {type: 'text', inTag: 'maxlength=30'}
+                },
 
-    </script>
-    </body>
+                {
+                    field: 'pDate', caption: 'Purchase Date', size: '25%', style: 'text-align: center', resizable: true,
+                    editable: {type: 'date', style: 'text-align: center'}
+                },
+                {
+                    field: 'rDate', caption: 'Return Date', size: '25%', style: 'text-align: center', resizable: true,
+                    editable: {type: 'date', style: 'text-align: center'}
+                },
+                {
+                    field: 'rTime',
+                    caption: 'Residence Time',
+                    size: '25%',
+                    resizable: true,
+                    style: "text-align: center",
+                    editable: {type: 'int', inTag: "maxlength=3", style: 'text-align: center'}
+                }
+            ]
+        });
+    });
+
+
+</script>
+</body>
 </html>
