@@ -9,11 +9,58 @@ and open the template in the editor.
         <title>Raporlar</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="resources/css/bootstrap.css"/>
+        <link rel="stylesheet" href="resources/css/w2ui-1.4.2.css"/>
+
+
+        <script src="resources/js/jquery-2.1.0.min.js"></script> <!-- Kendi import yaptığım -->
+        <script src="resources/js/bootstrap.js"></script>
+        <script src="resources/js/w2ui-1.4.2.js"></script>
+
+
+
     </head>
+
+
+    <div id="grid" style="margin:8em; height: 400px;"></div>
+
     <body>
-    <center>
+<!--    <center>
         <h2>Raporlar</h2>
         <a href="AdminPanel.html">Anasayfaya dön</a>
-    </center>
+    </center>-->
+
+<script type="text/javascript">
+    $(function () {
+        $('#grid').w2grid({
+            name: 'grid',
+            header: '<h4>Book History</h4>',
+            show: {
+                header: true,
+                toolbar: true,
+                footer: true
+            },
+            multiSearch: true,
+            searches: [
+                { field: 'date', caption: 'Date', type: 'date' }
+            ],
+            columns: [
+                { field: 'recid', caption: 'ID', size: '50px', sortable: true, attr: 'align=center' },
+                { field: 'bname', caption: 'Book Name', size: '30%', sortable: true },
+                { field: 'date', caption: 'Date', render: 'date:mm/dd/yyyy', size: '130px' },
+            ],
+            records: [
+                { recid: 1, bname: 'Jane', date: '12/07/2005' },
+                { recid: 2, bname: 'Stuart', date: '08/08/2015' }
+
+            ]
+        });
+    });
+</script>
+
+
+
+
     </body>
 </html>

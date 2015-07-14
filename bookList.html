@@ -66,9 +66,11 @@ and open the template in the editor.
         $('#navbar').w2toolbar({
             name: 'toolbar',
             items: [
-                {type: 'button', id: 'homePage', caption: 'Ana Sayfa', icon: 'fa fa-diamond'},
+                {type: 'button', id: 'homePage', caption: 'Main Page', icon: 'fa fa-diamond'},
                 { type: 'break',  id: 'break0' },
-                {type: 'button', id:'editBook', caption: 'Edit Book', icon: 'fa fa-diamond'}
+                {type: 'button', id:'editBook', caption: 'Edit Book', icon: 'fa fa-diamond'},
+                {tpye:'break', id:'break0 '},
+                {tpye:'button', id:'movement', caption : 'Book Hitory', icon: 'fa fa-diamond'}
             ],
             onClick: function (target, data) {
 
@@ -77,6 +79,9 @@ and open the template in the editor.
                 }
                 if(target === 'editBook'){
                     window.location.href = 'newBook.html';
+                }
+                if(target === 'movement') {
+                    window.location.href = 'movement.html';
                 }
             }
 
