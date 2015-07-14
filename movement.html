@@ -9,6 +9,7 @@ and open the template in the editor.
     <title>Kitabın Hareketleri</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="resources/css/bootstrap.css"/>
     <link rel="stylesheet" href="resources/css/font-awesome.css"/>
     <link rel="stylesheet" href="resources/css/w2ui-1.4.2.css"/>
@@ -21,33 +22,11 @@ and open the template in the editor.
 </head>
 <body>
 
-<!--        <center>
-                <h2>Kitabın haretleri</h2>
-
-            <table border="1">
-            <TR>
-                <td>ADI SOYADI</td>
-                <td>ALIŞ TARİHİ</td>
-                <td>İADE TARİHİ</td>
-                <td>KALIŞ SÜRESİ</td>
-            </TR>
-            <tr>
-                <th>MURAT CAN VARER</th>
-                <th> <input type="date" /> </th>
-                <th> <input type="date"/> </th>
-                <th> <input type="number" min="1" /> </th>
-            </tr>
-            </table>
-
-
-
-    </center>-->
-
 <nav id="navbar">
 </nav>
 
 
-<div id="grid" style=" margin: 2em; height: 500px;">
+<div id="grid" style=" margin: 8em; height: 700px;">
 </div>
 
 
@@ -58,9 +37,7 @@ and open the template in the editor.
         $('#navbar').w2toolbar({
             name: 'toolbar',
             items: [
-                {type: 'button', id: 'homePage', caption: 'Ana Sayfa', icon: 'fa fa-diamond'},
-                {type: 'spacer'},
-                {type: 'button', id: 'aboutPage', caption: 'Hakkinda', icon: 'fa fa-diamond'},
+                {type: 'button', id: 'homePage', caption: 'Main Page', icon: 'fa fa-diamond'}
             ],
             onClick: function (target, data) {
 
