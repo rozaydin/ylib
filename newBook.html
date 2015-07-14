@@ -9,9 +9,26 @@ and open the template in the editor.
         <title>YENİ KİTAP EKLE</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="resources/css/bootstrap.css"/>
+        <link rel="stylesheet" href="resources/css/w2ui-1.4.2.css"/>
+        <link rel="stylesheet" href="resources/css/font-awesome.css"/>
+
+
+        <script src="resources/js/jquery-2.1.0.min.js"></script>
+        <script src="resources/js/bootstrap.js"></script>
+        <script src="resources/js/w2ui-1.4.2.js"></script>
+
+
+
+
+
+
     </head>
+
+
     <body>
-        <form>
+ <!--       <form>
             <center> <h2>YENİ KİTAP EKLE</h2>
             
             <p>ADI* :
@@ -43,6 +60,55 @@ and open the template in the editor.
             <p>BASKI TARİHİ* :
                 <input type="date"/></p>
             <a href="AdminPanel.html">Add</a> </center>
-        </form>
+        </form>-->
+
+ <div id="form" style="position: absolute; top: 100px; left: 650px; bottom: 100px; right: 10px; margin: 2em; height: 550px;width: 500px"></div>
+
+ <script type="text/javascript">
+     $(function () {
+         $('#form').w2form({
+             name     : 'form',
+             header   : '<h4>Add New Book</h4>',
+             fields: [
+                 { field: 'Book Name', type: 'text', required: true },
+                 { field: 'Author', type: 'text', required: true },
+                 { field: 'Subject', type: 'list', required: true,
+                     options: { items: ['Yazılım','Donanım','Hukuk','Finans','İk','Çevre','ISG','İdari','Diğer'] } },
+                 { field: 'Language', type: 'list', required: true, options: { items: ['TR', 'EN'] } },
+                 { field: 'Number of Pages', type: 'int', required: true },
+                 { field: 'Register No', type: 'int', required: true },
+                 { field: 'ISBN No', type: 'int', required: true },
+                 { field: 'Printing House', type: 'text', required: true },
+                 { field: 'Print Date', type: 'date',required: true },
+                 { field: 'Yaltes Entry Date', type: 'date',required: true },
+
+                 { field: 'Location', type: 'alphaNumeric',required: true},
+                 { field: 'Summery', type: 'textarea'}
+
+
+             ],
+             actions: {
+                 reset: function () {
+                     this.clear();
+                 },
+                 save: function () {
+                     var obj = this;
+                     this.save({}, function (data) {
+                         if (data.status == 'error') {
+                             console.log('ERROR: '+ data.message);
+                             return;
+                         }
+                         obj.clear();
+                     });
+                 }
+             }
+         });
+     });
+ </script>
+
+
+
+
+
     </body>
 </html>

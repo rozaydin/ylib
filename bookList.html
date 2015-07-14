@@ -114,9 +114,9 @@ and open the template in the editor.
             ],
             records: [
                 { recid: 1,
-                    id: 'John',
+                    id: '',
                     name: 'doe',
-                    author: 'jdoe@gmail.com',
+                    author: 'kYLE',
                     topic: '4/3/2012',
                     language: 'TR',
                     pressDate: '12/8/2015',
@@ -131,7 +131,8 @@ and open the template in the editor.
 
             onExpand: function (event) {
                 var template = '<div class="row"><div class="col-xs-4 col-md-3"><a href="#" class="thumbnail"><img  src="resources/images/BookCover.jpg"  alt="book title" style="width: 20%;"></a></div></div>';
-                $('#' + event.box_id).html(template).animate({'height': 100}, 100);
+                $('#' + event.box_id).html(template).animate({'height': 100}, 50);
+
             }
         });
     });
