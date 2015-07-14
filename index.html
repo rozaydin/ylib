@@ -17,10 +17,14 @@ and open the template in the editor.
 
         <!-- CSS -->
         <link rel="stylesheet" href="resources/css/bootstrap.css"/>
+        <link rel="stylesheet" href="resources/css/w2ui-1.4.2.css"/>
+        <link rel="stylesheet" href="resources/css/font-awesome.css"/>
 
 
         <!-- JS -->
+        <script src="resources/js/jquery-2.1.4.min.js"></script>
         <script src="resources/js/bootstrap.js"></script>
+        <script src="resources/js/w2ui-1.4.2.js"></script>
 
 
 
@@ -33,13 +37,37 @@ and open the template in the editor.
              alt="YALTES" />
     </figure>
     </center>
-        <form>
+<!--        <form>
             <center> <h2>YALTES KÜTÜPHANESİNE GİRİŞ</h2>
             <input type="text" placeholder="Admin"/> <br/>
             <input type="password" placeholder="password" /> <br/>
             
             <input type="button" value="login"/>            
             <a href="AdminPanel.html">Admin Panel</a></center>
-        </form>
+        </form>-->
+   <center> <a href="AdminPanel.html">Admin Panel</a></center>
+
+    <div id="myForm" style="position: absolute; top: 250px; left: 650px; bottom: 100px; right: 15px; margin: 6em; height: 200px;width: 500px"></div>
+
+    <script>
+        $(function () {
+            $('#myForm').w2form({
+                name   : 'myForm',
+                fields : [
+                    { name: 'Admin', type: 'text', required: true },
+                    { name: 'Password',  type: 'password', required: true },
+                ],
+                actions: {
+                    login: function () {
+                        this.clear();
+                    },
+
+                }
+            });
+        });
+    </script>
+
+
+
     </body>
 </html>
