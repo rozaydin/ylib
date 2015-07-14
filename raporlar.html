@@ -12,6 +12,7 @@ and open the template in the editor.
 
         <link rel="stylesheet" href="resources/css/bootstrap.css"/>
         <link rel="stylesheet" href="resources/css/w2ui-1.4.2.css"/>
+        <link rel="stylesheet" href="resources/css/font-awesome.css"/>
 
 
         <script src="resources/js/jquery-2.1.0.min.js"></script> <!-- Kendi import yaptığım -->
@@ -21,7 +22,7 @@ and open the template in the editor.
 
 
     </head>
-
+    <div id="toolbar" style="padding: 4px; border: 1px solid silver; border-radius: 3px"></div>
 
     <div id="grid" style="margin:8em; height: 400px;"></div>
 
@@ -33,9 +34,31 @@ and open the template in the editor.
 
 <script type="text/javascript">
     $(function () {
+
+        $('#toolbar').w2toolbar({
+            name: 'toolbar',
+            items: [
+                { type: 'button',  id: 'homePage',  caption: 'Main Page', img: 'icon-page' },
+                { type: 'break',  id: 'break0' },
+                { type: 'button', id: 'bookList',caption: ' Retrun Book List', img:'fa fa-star'}
+            ],
+            onClick: function (target, data) {
+
+                if ( target === 'homePage' ) {
+                    window.location.href = 'AdminPanel.html';
+                }
+                if( target === 'bookList'){
+                    window.location.href = 'bookList.html';
+                }
+            }
+
+        });
+
+
+
         $('#grid').w2grid({
             name: 'grid',
-            header: '<h4>Book History</h4>',
+            header: '<h4>Reports</h4>',
             show: {
                 header: true,
                 toolbar: true,
@@ -46,13 +69,14 @@ and open the template in the editor.
                 { field: 'date', caption: 'Date', type: 'date' }
             ],
             columns: [
-                { field: 'recid', caption: 'ID', size: '50px', sortable: true, attr: 'align=center' },
-                { field: 'bname', caption: 'Book Name', size: '30%', sortable: true },
-                { field: 'date', caption: 'Date', render: 'date:mm/dd/yyyy', size: '130px' },
+                { field: 'recid', caption: 'ID', size: '5%', sortable: true, attr: 'align=center' },
+                { field: 'bname', caption: 'Book Name', size: '60%', sortable: true },
+                { field: 'date', caption: 'Date', render: 'date:mm/dd/yyyy', size: '30%' },
+                { field: 'counter', caption: ' Counter', render:'number', size:'5%', sortable: true, searchable: true}
             ],
             records: [
-                { recid: 1, bname: 'Jane', date: '12/07/2005' },
-                { recid: 2, bname: 'Stuart', date: '08/08/2015' }
+                { recid: 1, bname: 'Jane', date: '12/07/2005',counter:'6' },
+                { recid: 2, bname: 'Stuart', date: '08/08/2015',counter:'8' }
 
             ]
         });

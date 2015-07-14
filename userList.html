@@ -80,6 +80,7 @@ and open the template in the editor.
                 toolbarDelete: true
             },
             columns: [
+                { field: 'recid', caption: 'ID', size: '5%', sortable: true, attr: 'align=center' },
                 {field: 'fname', caption: 'First Name', size: '33%', sortable: true, searchable: true},
                 {field: 'lname', caption: 'Last Name', size: '33%', sortable: true, searchable: true},
                 {field: 'email', caption: 'Email', size: '33%'},
@@ -119,7 +120,7 @@ and open the template in the editor.
             fields: [
                 {name: 'recid',
                     type: 'text',
-                    html: {caption: 'ID', attr: 'size="10" readonly'}},
+                    html: {caption: 'ID', attr: 'size="10" '}},
                 {
                     name: 'fname',
                     type: 'text',
