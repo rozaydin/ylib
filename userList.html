@@ -14,8 +14,8 @@ and open the template in the editor.
     <style>
 
         body {
-            margin: 0;
-            padding: 0;
+            margin: 40px;
+            padding: 4px;
         }
 
         html, body {
@@ -31,8 +31,7 @@ and open the template in the editor.
     <link rel="stylesheet" href="resources/css/font-awesome.css"/>
 
 
-    <script src="resources/js/jquery-2.1.0.min.js"></script>
-    <!-- Kendi import yaptığım -->
+    <script src="resources/js/jquery-2.1.0.min.js"></script><!-- Kendi import yaptığım -->
     <script src="resources/js/jquery-2.1.4.min.js"></script>
     <script src="resources/js/bootstrap.js"></script>
     <script src="resources/js/w2ui-1.4.2.js"></script>
@@ -120,7 +119,8 @@ and open the template in the editor.
             name: 'form',
             fields: [
                 {name: 'recid',
-                    type: 'text',
+                    type: 'int',
+                    required:true,
                     html: {caption: 'ID', attr: 'size="10" '}},
                 {
                     name: 'fname',
@@ -135,8 +135,11 @@ and open the template in the editor.
                     html: {caption: 'Last Name', attr: 'size="40" maxlength="40"'}
                 },
                 {name: 'email',
+                    required:true,
                     type: 'email', html: {caption: 'Email', attr: 'size="30"'}},
-                {name: 'depart', type: 'text', html: {caption: 'Department', attr: 'size="10"'}}
+                {name: 'depart',
+                    required:true,
+                    type: 'text', html: {caption: 'Department', attr: 'size="10"'}}
             ],
             actions: {
                 AddUser: function () {
